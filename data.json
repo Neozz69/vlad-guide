@@ -1,0 +1,74 @@
+[
+  {
+    "id": "Irelia",
+    "difficulty": "Hard",
+    "winrate": 44.5,
+    "runes": "Phase",
+    "summons": ["SummonFlash", "SummonHaste"],
+    "build": [3158, 4628, 3157],
+    "tips": "⚠️ MATCHUP EXTRÊME. Phase Rush + Ghost obligatoire pour survivre. Ne fight jamais si elle a 5 stacks. Rush Zhonya (3eme item) nécessaire. Farm et scale."
+  },
+  {
+    "id": "Nasus",
+    "difficulty": "Hard",
+    "winrate": 47.8,
+    "runes": "Phase",
+    "summons": ["SummonFlash", "SummonHaste"],
+    "build": [3158, 4629, 4628],
+    "tips": "PHASE RUSH OBLIGATOIRE. Son W (Slow) te tue. Dès qu'il te ralentit, proc Phase Rush et fuis. Tu ne le tueras pas en lane, joue la survie."
+  },
+  {
+    "id": "Yorick",
+    "difficulty": "Hard",
+    "winrate": 46.2,
+    "runes": "Aery",
+    "summons": ["SummonFlash", "SummonDot"],
+    "build": [3020, 4628, 4633],
+    "tips": "Son mur (W) te bloque même en flaque ! Auto-attaque la cage avant de fuir. Aery aide à tuer les goules. Ignite pour couper son heal."
+  },
+  {
+    "id": "Renekton",
+    "difficulty": "Medium",
+    "winrate": 50.5,
+    "runes": "Aery",
+    "summons": ["SummonFlash", "SummonDot"],
+    "build": [3158, 4628, 3089],
+    "tips": "Respecte sa barre de rage rouge. Harcèle-le à l'auto + Aery. S'il dash in, combo rapide puis W son stun. Tu l'outscale fort."
+  },
+  {
+    "id": "Riven",
+    "difficulty": "Medium",
+    "winrate": 48.5,
+    "runes": "Aery",
+    "summons": ["SummonFlash", "SummonDot"],
+    "build": [3158, 4628, 3157],
+    "tips": "Skill matchup. Aery + Ignite pour la pression de kill early. Garde le W pour son 3ème Q ou son R. Zhonya très fort en 3ème item."
+  },
+  {
+    "id": "Jax",
+    "difficulty": "Medium",
+    "winrate": 50.1,
+    "runes": "Phase",
+    "summons": ["SummonFlash", "SummonHaste"],
+    "build": [3158, 4629, 4628],
+    "tips": "Ghost pour matcher le sien. E chargé quand il saute (Q) -> W uniquement quand il active son stun (E). Phase Rush pour kite."
+  },
+  {
+    "id": "Garen",
+    "difficulty": "Easy",
+    "winrate": 52.5,
+    "runes": "Aery",
+    "summons": ["SummonFlash", "SummonDot"],
+    "build": [3020, 4628, 3089],
+    "tips": "Sac à PV. Aery + Ignite empêche son passif de régénération. Spam Q et auto-attaques. S'il te fonce dessus (Q), recule, E, puis Q."
+  },
+  {
+    "id": "Malphite",
+    "difficulty": "Easy",
+    "winrate": 54.0,
+    "runes": "Aery",
+    "summons": ["SummonFlash", "SummonDot"],
+    "build": [3020, 4628, 3089],
+    "tips": "Matchup gratuit. Il ne peut rien faire contre ton sustain. Poke le non-stop. Build full dégâts pour le One-shot en teamfight."
+  }
+]
