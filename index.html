@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vlad.GG - Final Fix</title>
+    <title>Vlad.GG - Version Finale</title>
     <style>
         :root { --bg: #121212; --card: #1e1e1e; --text: #e0e0e0; --accent: #e84057; --green: #4caf50; --yellow: #ff9800; --red: #f44336; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; margin: 0; padding-bottom: 100px; }
@@ -54,7 +54,7 @@
         <img src="https://ddragon.leagueoflegends.com/cdn/14.23.1/img/champion/Vladimir.png">
         <div>
             <h1>Vlad<span>.GG</span></h1>
-            <small>Version Debug</small>
+            <small>Version Finale</small>
         </div>
     </header>
 
@@ -66,12 +66,12 @@
         <div class="chat-header"><span>Coach Vlad AI</span><span style="cursor:pointer" onclick="toggleChat()">✖</span></div>
         <div id="apiKeyScreen" class="api-key-screen">
             <h3>Configuration IA</h3>
-            <p style="font-size:0.8rem; color:#aaa;">Colle ta clé API Gemini ici.</p>
-            <input type="password" id="apiKeyInput" placeholder="AIza..." class="chat-input" style="border-radius:5px;">
+            <p style="font-size:0.8rem; color:#aaa;">Colle ta clé API Gemini (AIza...)</p>
+            <input type="password" id="apiKeyInput" placeholder="Clé API..." class="chat-input" style="border-radius:5px;">
             <button class="save-key-btn" onclick="saveKey()">Valider</button>
         </div>
         <div id="chatInterface" style="display:none; flex-direction:column; height:100%;">
-            <div class="chat-body" id="chatBody"><div class="msg bot">Pose ta question (Vlad ou autre).</div></div>
+            <div class="chat-body" id="chatBody"><div class="msg bot">Le sang coule... Pose ta question.</div></div>
             <div class="chat-input-area">
                 <span class="reset-key" onclick="resetKey()" title="Changer clé">🔑</span>
                 <input type="text" id="userMsg" class="chat-input" placeholder="..." onkeypress="handleEnter(event)">
@@ -81,25 +81,29 @@
     </div>
 
     <script>
-        // --- DONNEES CORRIGEES (Noms techniques pour les sorts) ---
-        // SummonFlash = Flash
-        // SummonHaste = Ghost
-        // SummonDot = Ignite
+        // --- DONNEES ---
         const INTERNAL_DB = [
-          { "id": "Irelia", "difficulty": "Hard", "winrate": 44.5, "runes": "Phase", "summons": ["SummonFlash", "SummonHaste"], "build": [3158, 4628, 3157], "tips": "Rush Zhonya. Phase Rush obligatoire." },
-          { "id": "Nasus", "difficulty": "Hard", "winrate": 47.8, "runes": "Phase", "summons": ["SummonFlash", "SummonHaste"], "build": [3158, 4629, 4628], "tips": "Phase Rush obligatoire pour contrer le slow." },
-          { "id": "Yorick", "difficulty": "Hard", "winrate": 46.2, "runes": "Aery", "summons": ["SummonFlash", "SummonDot"], "build": [3020, 4628, 4633], "tips": "Tue les goules. Ignite pour le heal." },
-          { "id": "Renekton", "difficulty": "Medium", "winrate": 50.5, "runes": "Aery", "summons": ["SummonFlash", "SummonDot"], "build": [3158, 4628, 3089], "tips": "Attention barre rouge." },
-          { "id": "Riven", "difficulty": "Medium", "winrate": 48.5, "runes": "Aery", "summons": ["SummonFlash", "SummonDot"], "build": [3158, 4628, 3157], "tips": "Garde W pour son 3eme Q." },
-          { "id": "Jax", "difficulty": "Medium", "winrate": 50.1, "runes": "Phase", "summons": ["SummonFlash", "SummonHaste"], "build": [3158, 4629, 4628], "tips": "Ghost vs Ghost." },
-          { "id": "Garen", "difficulty": "Easy", "winrate": 52.5, "runes": "Aery", "summons": ["SummonFlash", "SummonDot"], "build": [3020, 4628, 3089], "tips": "Poke non stop." },
-          { "id": "Malphite", "difficulty": "Easy", "winrate": 54.0, "runes": "Aery", "summons": ["SummonFlash", "SummonDot"], "build": [3020, 4628, 3089], "tips": "Gratuit." }
+          { "id": "Irelia", "difficulty": "Hard", "winrate": 44.5, "runes": "Phase", "summons": ["Flash", "Ghost"], "build": [3158, 4628, 3157], "tips": "Rush Zhonya. Phase Rush obligatoire." },
+          { "id": "Nasus", "difficulty": "Hard", "winrate": 47.8, "runes": "Phase", "summons": ["Flash", "Ghost"], "build": [3158, 4629, 4628], "tips": "Phase Rush obligatoire pour contrer le slow." },
+          { "id": "Yorick", "difficulty": "Hard", "winrate": 46.2, "runes": "Aery", "summons": ["Flash", "Ignite"], "build": [3020, 4628, 4633], "tips": "Auto-attaque la cage. Aery aide à tuer les goules." },
+          { "id": "Renekton", "difficulty": "Medium", "winrate": 50.5, "runes": "Aery", "summons": ["Flash", "Ignite"], "build": [3158, 4628, 3089], "tips": "Attention barre rouge." },
+          { "id": "Riven", "difficulty": "Medium", "winrate": 48.5, "runes": "Aery", "summons": ["Flash", "Ignite"], "build": [3158, 4628, 3157], "tips": "Garde W pour son 3eme Q." },
+          { "id": "Jax", "difficulty": "Medium", "winrate": 50.1, "runes": "Phase", "summons": ["Flash", "Ghost"], "build": [3158, 4629, 4628], "tips": "Ghost vs Ghost." },
+          { "id": "Garen", "difficulty": "Easy", "winrate": 52.5, "runes": "Aery", "summons": ["Flash", "Ignite"], "build": [3020, 4628, 3089], "tips": "Poke non stop." },
+          { "id": "Malphite", "difficulty": "Easy", "winrate": 54.0, "runes": "Aery", "summons": ["Flash", "Ignite"], "build": [3020, 4628, 3089], "tips": "Gratuit." }
         ];
 
-        // --- URLS OFFICIELLES (Version 14.23.1) ---
+        // --- LIENS WIKI (Ultra Stables) ---
+        // Je remplace tes liens Google par les originaux
+        const SPELL_IMAGES = {
+            "Flash": "https://static.wikia.nocookie.net/leagueoflegends/images/7/74/Flash_icon.png",
+            "Ghost": "https://static.wikia.nocookie.net/leagueoflegends/images/a/ab/Ghost_icon.png",
+            "Ignite": "https://static.wikia.nocookie.net/leagueoflegends/images/f/f4/Ignite_icon.png"
+        };
+
         const BASE_URL = "https://ddragon.leagueoflegends.com/cdn/14.23.1/img/";
         
-        // Mapping Runes (CommunityDragon est le seul stable pour les runes)
+        // Runes Stables
         const RUNE_MAP = {
             "Phase": "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/styles/sorcery/phaserush/phaserush.png",
             "Elec": "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/styles/domination/electrocute/electrocute.png",
@@ -111,10 +115,11 @@
             const container = document.getElementById('app');
             container.innerHTML = '';
             INTERNAL_DB.forEach(m => {
-                // Construction liens items
                 let itemsHtml = m.build.map(id => `<img src="${BASE_URL}item/${id}.png" title="${id}">`).join('');
-                // Construction liens sorts (utilisation des noms techniques corrects)
-                let summonsHtml = m.summons.map(name => `<img src="${BASE_URL}spell/${name}.png" title="${name}">`).join('');
+                let summonsHtml = m.summons.map(name => {
+                    let url = SPELL_IMAGES[name] || SPELL_IMAGES["Flash"];
+                    return `<img src="${url}" title="${name}" onerror="this.src='${SPELL_IMAGES['Flash']}'">`;
+                }).join('');
                 
                 let runeUrl = RUNE_MAP[m.runes];
 
@@ -135,7 +140,7 @@
         }
         render();
 
-        // --- GESTION IA (Avec alerte d'erreur visible) ---
+        // --- GESTION IA ---
         const [chatWindow, keyScreen, interface, chatBody] = ['chatWindow','apiKeyScreen','chatInterface','chatBody'].map(id => document.getElementById(id));
         let userApiKey = localStorage.getItem('vlad_api_key');
 
@@ -147,7 +152,7 @@
         function saveKey() {
             const input = document.getElementById('apiKeyInput').value.trim();
             if(input.startsWith('AIza')) { localStorage.setItem('vlad_api_key', input); userApiKey = input; checkKey(); }
-            else { alert("La clé semble invalide (elle doit commencer par AIza)."); }
+            else { alert("Clé invalide (Doit commencer par AIza)"); }
         }
         function resetKey() { localStorage.removeItem('vlad_api_key'); userApiKey = null; checkKey(); }
         function handleEnter(e) { if(e.key === 'Enter') sendMessage(); }
@@ -161,7 +166,6 @@
             const loadingId = addMessage("...", 'bot');
 
             try {
-                // J'utilise le modèle Gemini standard, sans systemInstruction compliqué
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${userApiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -170,22 +174,19 @@
                 
                 const data = await response.json();
 
-                // DÉBOGAGE : Si erreur, on affiche l'alerte
                 if (data.error) {
-                    alert("ERREUR GOOGLE : " + data.error.message);
+                    alert("ERREUR API : " + data.error.message); // AFFICHE L'ERREUR EXACTE
                     document.getElementById(loadingId).innerText = "Erreur technique.";
                     return;
                 }
                 
                 if (data.candidates && data.candidates[0].content) {
                      document.getElementById(loadingId).innerText = data.candidates[0].content.parts[0].text;
-                } else {
-                     document.getElementById(loadingId).innerText = "Pas de réponse de l'IA (Réponse vide).";
                 }
 
             } catch (error) {
-                alert("ERREUR RESEAU/CODE : " + error);
-                document.getElementById(loadingId).innerText = "Erreur de connexion.";
+                alert("ERREUR INTERNET : " + error);
+                document.getElementById(loadingId).innerText = "Erreur connexion.";
             }
         }
 
