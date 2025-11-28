@@ -77,7 +77,7 @@
 <body>
 
     <header>
-        <img src="https://ddragon.leagueoflegends.com/cdn/14.23.1/img/champion/Vladimir.png">
+        <img src="https://ddragon.leagueoflegends.com/cdn/14.22.1/img/champion/Vladimir.png">
         <div>
             <h1>Vlad<span>.GG</span></h1>
             <small>Build: Concentration Lointaine > Rabadon > Riftmaker</small>
@@ -114,10 +114,11 @@
 
     <script>
         // --- 1. CHARGEMENT DES DONNÉES (JSON) ---
-        // Utilisation de la dernière version et de liens stables pour les runes
-        const DDRAGON_VER = "14.23.1";
+        // On utilise la version 14.22.1 qui est plus stable pour les images CDN
+        const DDRAGON_VER = "14.22.1"; 
         const CDN_BASE = `https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VER}/img/`;
-        // Liens "CommunityDragon" (plus stables pour les runes)
+        
+        // Liens spécifiques pour les Runes (CommunityDragon)
         const RUNE_IMGS = {
             "Phase": "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/styles/sorcery/phaserush/phaserush.png",
             "Elec": "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/perk-images/styles/domination/electrocute/electrocute.png",
@@ -133,9 +134,14 @@
                 container.innerHTML = '';
 
                 matchups.forEach(m => {
+                    // Construction des images Items
                     let itemsHtml = m.build.map(id => `<img src="${CDN_BASE}item/${id}.png" title="ID: ${id}">`).join('');
-                    // Correction des liens des sorts d'invocateur
-                    let summonsHtml = m.summons.map(spell => `<img src="${CDN_BASE}spell/${spell}.png" title="${spell}">`).join('');
+                    
+                    // Construction des images Sorts (Flash/Ignite/Ghost)
+                    let summonsHtml = m.summons.map(spell => 
+                        `<img src="${CDN_BASE}spell/${spell}.png" title="${spell}">`
+                    ).join('');
+
                     let runeUrl = RUNE_IMGS[m.runes] || RUNE_IMGS["Phase"];
 
                     const html = `
@@ -183,6 +189,7 @@
 
         function saveKey() {
             const input = document.getElementById('apiKeyInput').value.trim();
+            // Validation basique de la clé
             if(input.length > 20 && input.startsWith('AIza')) { 
                 localStorage.setItem('vlad_api_key', input); userApiKey = input; checkKey(); 
             } else { alert("Clé invalide. Elle doit commencer par 'AIza'."); }
@@ -218,7 +225,7 @@
 
                 document.getElementById(loadingId).innerText = data.candidates[0].content.parts[0].text;
             } catch (error) {
-                document.getElementById(loadingId).innerText = "Erreur API : Vérifie ta clé ou les restrictions.";
+                document.getElementById(loadingId).innerText = "Erreur API : Vérifie ta clé ou ta connexion.";
                 console.error("Erreur Gemini:", error);
             }
         }
